@@ -596,104 +596,140 @@ End Sub
 
 Sub ObjectsAlignLefts()
     Set MyDocument = Application.ActiveWindow
-    
     If Not MyDocument.Selection.Type = ppSelectionShapes Then Exit Sub
     
     If MyDocument.Selection.HasChildShapeRange Then
         If MyDocument.Selection.ChildShapeRange.Count > 1 Then
-            MyDocument.Selection.ChildShapeRange.Align msoAlignLefts, msoFalse
+            Set lastSelected = MyDocument.Selection.ChildShapeRange(MyDocument.Selection.ChildShapeRange.Count)
+            For Each obj In MyDocument.Selection.ChildShapeRange
+                obj.left = lastSelected.left
+            Next
         End If
-    ElseIf MyDocument.Selection.ShapeRange.Count = 1 Then
-        MyDocument.Selection.ShapeRange.Align msoAlignLefts, msoTrue
     Else
-        MyDocument.Selection.ShapeRange.Align msoAlignLefts, msoFalse
+        Set lastSelected = MyDocument.Selection.ShapeRange(MyDocument.Selection.ShapeRange.Count)
+        If MyDocument.Selection.ShapeRange.Count > 1 Then
+            For Each obj In MyDocument.Selection.ShapeRange
+                obj.left = lastSelected.left
+            Next
+        Else
+            MyDocument.Selection.ShapeRange.Align msoAlignLefts, msoTrue
+        End If
     End If
-    
 End Sub
 
 Sub ObjectsAlignRights()
     Set MyDocument = Application.ActiveWindow
-    
     If Not MyDocument.Selection.Type = ppSelectionShapes Then Exit Sub
     
     If MyDocument.Selection.HasChildShapeRange Then
         If MyDocument.Selection.ChildShapeRange.Count > 1 Then
-            MyDocument.Selection.ChildShapeRange.Align msoAlignRights, msoFalse
+            Set lastSelected = MyDocument.Selection.ChildShapeRange(MyDocument.Selection.ChildShapeRange.Count)
+            For Each obj In MyDocument.Selection.ChildShapeRange
+                obj.left = (lastSelected.left + lastSelected.Width) - obj.Width
+            Next
         End If
-    ElseIf MyDocument.Selection.ShapeRange.Count = 1 Then
-        MyDocument.Selection.ShapeRange.Align msoAlignRights, msoTrue
     Else
-        MyDocument.Selection.ShapeRange.Align msoAlignRights, msoFalse
+        Set lastSelected = MyDocument.Selection.ShapeRange(MyDocument.Selection.ShapeRange.Count)
+        If MyDocument.Selection.ShapeRange.Count > 1 Then
+            For Each obj In MyDocument.Selection.ShapeRange
+                obj.left = (lastSelected.left + lastSelected.Width) - obj.Width
+            Next
+        Else
+            MyDocument.Selection.ShapeRange.Align msoAlignRights, msoTrue
+        End If
     End If
-    
 End Sub
 
 Sub ObjectsAlignBottoms()
     Set MyDocument = Application.ActiveWindow
-    
     If Not MyDocument.Selection.Type = ppSelectionShapes Then Exit Sub
     
     If MyDocument.Selection.HasChildShapeRange Then
         If MyDocument.Selection.ChildShapeRange.Count > 1 Then
-            MyDocument.Selection.ChildShapeRange.Align msoAlignBottoms, msoFalse
+            Set lastSelected = MyDocument.Selection.ChildShapeRange(MyDocument.Selection.ChildShapeRange.Count)
+            For Each obj In MyDocument.Selection.ChildShapeRange
+                obj.Top = (lastSelected.Top + lastSelected.Height) - obj.Height
+            Next
         End If
-    ElseIf MyDocument.Selection.ShapeRange.Count = 1 Then
-        MyDocument.Selection.ShapeRange.Align msoAlignBottoms, msoTrue
     Else
-        MyDocument.Selection.ShapeRange.Align msoAlignBottoms, msoFalse
+        Set lastSelected = MyDocument.Selection.ShapeRange(MyDocument.Selection.ShapeRange.Count)
+        If MyDocument.Selection.ShapeRange.Count > 1 Then
+            For Each obj In MyDocument.Selection.ShapeRange
+                obj.Top = (lastSelected.Top + lastSelected.Height) - obj.Height
+            Next
+        Else
+            MyDocument.Selection.ShapeRange.Align msoAlignBottoms, msoTrue
+        End If
     End If
-    
 End Sub
 
 Sub ObjectsAlignCenters()
     Set MyDocument = Application.ActiveWindow
-    
     If Not MyDocument.Selection.Type = ppSelectionShapes Then Exit Sub
     
     If MyDocument.Selection.HasChildShapeRange Then
         If MyDocument.Selection.ChildShapeRange.Count > 1 Then
-            MyDocument.Selection.ChildShapeRange.Align msoAlignCenters, msoFalse
+            Set lastSelected = MyDocument.Selection.ChildShapeRange(MyDocument.Selection.ChildShapeRange.Count)
+            For Each obj In MyDocument.Selection.ChildShapeRange
+                obj.left = lastSelected.left + (lastSelected.Width - obj.Width) / 2
+            Next
         End If
-    ElseIf MyDocument.Selection.ShapeRange.Count = 1 Then
-        MyDocument.Selection.ShapeRange.Align msoAlignCenters, msoTrue
     Else
-        MyDocument.Selection.ShapeRange.Align msoAlignCenters, msoFalse
+        Set lastSelected = MyDocument.Selection.ShapeRange(MyDocument.Selection.ShapeRange.Count)
+        If MyDocument.Selection.ShapeRange.Count > 1 Then
+            For Each obj In MyDocument.Selection.ShapeRange
+                obj.left = lastSelected.left + (lastSelected.Width - obj.Width) / 2
+            Next
+        Else
+            MyDocument.Selection.ShapeRange.Align msoAlignCenters, msoTrue
+        End If
     End If
-    
 End Sub
 
 Sub ObjectsAlignMiddles()
     Set MyDocument = Application.ActiveWindow
-    
     If Not MyDocument.Selection.Type = ppSelectionShapes Then Exit Sub
     
     If MyDocument.Selection.HasChildShapeRange Then
         If MyDocument.Selection.ChildShapeRange.Count > 1 Then
-            MyDocument.Selection.ChildShapeRange.Align msoAlignMiddles, msoFalse
+            Set lastSelected = MyDocument.Selection.ChildShapeRange(MyDocument.Selection.ChildShapeRange.Count)
+            For Each obj In MyDocument.Selection.ChildShapeRange
+                obj.Top = lastSelected.Top + (lastSelected.Height - obj.Height) / 2
+            Next
         End If
-    ElseIf MyDocument.Selection.ShapeRange.Count = 1 Then
-        MyDocument.Selection.ShapeRange.Align msoAlignMiddles, msoTrue
     Else
-        MyDocument.Selection.ShapeRange.Align msoAlignMiddles, msoFalse
+        Set lastSelected = MyDocument.Selection.ShapeRange(MyDocument.Selection.ShapeRange.Count)
+        If MyDocument.Selection.ShapeRange.Count > 1 Then
+            For Each obj In MyDocument.Selection.ShapeRange
+                obj.Top = lastSelected.Top + (lastSelected.Height - obj.Height) / 2
+            Next
+        Else
+            MyDocument.Selection.ShapeRange.Align msoAlignMiddles, msoTrue
+        End If
     End If
-    
 End Sub
 
 Sub ObjectsAlignTops()
     Set MyDocument = Application.ActiveWindow
-    
     If Not MyDocument.Selection.Type = ppSelectionShapes Then Exit Sub
     
     If MyDocument.Selection.HasChildShapeRange Then
         If MyDocument.Selection.ChildShapeRange.Count > 1 Then
-            MyDocument.Selection.ChildShapeRange.Align msoAlignTops, msoFalse
+            Set lastSelected = MyDocument.Selection.ChildShapeRange(MyDocument.Selection.ChildShapeRange.Count)
+            For Each obj In MyDocument.Selection.ChildShapeRange
+                obj.Top = lastSelected.Top
+            Next
         End If
-    ElseIf MyDocument.Selection.ShapeRange.Count = 1 Then
-        MyDocument.Selection.ShapeRange.Align msoAlignTops, msoTrue
     Else
-        MyDocument.Selection.ShapeRange.Align msoAlignTops, msoFalse
+        Set lastSelected = MyDocument.Selection.ShapeRange(MyDocument.Selection.ShapeRange.Count)
+        If MyDocument.Selection.ShapeRange.Count > 1 Then
+            For Each obj In MyDocument.Selection.ShapeRange
+                obj.Top = lastSelected.Top
+            Next
+        Else
+            MyDocument.Selection.ShapeRange.Align msoAlignTops, msoTrue
+        End If
     End If
-    
 End Sub
 
 Sub ObjectsDistributeHorizontally()

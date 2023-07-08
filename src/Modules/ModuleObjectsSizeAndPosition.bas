@@ -140,9 +140,9 @@ Sub ObjectsSameHeight()
     If Not MyDocument.Selection.Type = ppSelectionShapes Then Exit Sub
     
     If MyDocument.Selection.HasChildShapeRange Then
-        MyDocument.Selection.ChildShapeRange.Height = MyDocument.Selection.ChildShapeRange(1).Height
+        MyDocument.Selection.ChildShapeRange.Height = MyDocument.Selection.ChildShapeRange(MyDocument.Selection.ChildShapeRange.Count).Height
     Else
-        MyDocument.Selection.ShapeRange.Height = MyDocument.Selection.ShapeRange(1).Height
+        MyDocument.Selection.ShapeRange.Height = MyDocument.Selection.ShapeRange(MyDocument.Selection.ShapeRange.Count).Height
     End If
     
 End Sub
@@ -152,9 +152,9 @@ Sub ObjectsSameWidth()
     If Not MyDocument.Selection.Type = ppSelectionShapes Then Exit Sub
     
     If MyDocument.Selection.HasChildShapeRange Then
-        MyDocument.Selection.ChildShapeRange.Width = MyDocument.Selection.ChildShapeRange(1).Width
+        MyDocument.Selection.ChildShapeRange.Width = MyDocument.Selection.ChildShapeRange(MyDocument.Selection.ChildShapeRange.Count).Width
     Else
-        MyDocument.Selection.ShapeRange.Width = MyDocument.Selection.ShapeRange(1).Width
+        MyDocument.Selection.ShapeRange.Width = MyDocument.Selection.ShapeRange(MyDocument.Selection.ShapeRange.Count).Width
     End If
     
 End Sub
@@ -164,12 +164,12 @@ Sub ObjectsSameHeightAndWidth()
     If Not MyDocument.Selection.Type = ppSelectionShapes Then Exit Sub
     
     If MyDocument.Selection.HasChildShapeRange Then
-        MyDocument.Selection.ChildShapeRange.Height = MyDocument.Selection.ChildShapeRange(1).Height
-        MyDocument.Selection.ChildShapeRange.Width = MyDocument.Selection.ChildShapeRange(1).Width
+        MyDocument.Selection.ChildShapeRange.Height = MyDocument.Selection.ChildShapeRange(MyDocument.Selection.ChildShapeRange.Count).Height
+        MyDocument.Selection.ChildShapeRange.Width = MyDocument.Selection.ChildShapeRange(MyDocument.Selection.ChildShapeRange.Count).Width
         
     Else
-        MyDocument.Selection.ShapeRange.Height = MyDocument.Selection.ShapeRange(1).Height
-        MyDocument.Selection.ShapeRange.Width = MyDocument.Selection.ShapeRange(1).Width
+        MyDocument.Selection.ShapeRange.Height = MyDocument.Selection.ShapeRange(MyDocument.Selection.ShapeRange.Count).Height
+        MyDocument.Selection.ShapeRange.Width = MyDocument.Selection.ShapeRange(MyDocument.Selection.ShapeRange.Count).Width
     End If
     
 End Sub
@@ -186,11 +186,15 @@ Sub ObjectsSwapPosition()
         Left2 = ActiveWindow.Selection.ShapeRange(2).left
         Top1 = ActiveWindow.Selection.ShapeRange(1).Top
         Top2 = ActiveWindow.Selection.ShapeRange(2).Top
-        
-        ActiveWindow.Selection.ShapeRange(1).left = Left2
-        ActiveWindow.Selection.ShapeRange(2).left = Left1
-        ActiveWindow.Selection.ShapeRange(1).Top = Top2
-        ActiveWindow.Selection.ShapeRange(2).Top = Top1
+        Width1 = ActiveWindow.Selection.ShapeRange(1).Width
+        Width2 = ActiveWindow.Selection.ShapeRange(2).Width 
+        Height1 = ActiveWindow.Selection.ShapeRange(1).Height
+        Height2 = ActiveWindow.Selection.ShapeRange(2).Height  
+
+        ActiveWindow.Selection.ShapeRange(1).left = Left2 + (Width2 - Width1) / 2
+        ActiveWindow.Selection.ShapeRange(2).left = Left1 + (Width1 - Width2) / 2
+        ActiveWindow.Selection.ShapeRange(1).Top = Top2 + (Height2 - Height1) / 2
+        ActiveWindow.Selection.ShapeRange(2).Top = Top1 + (Height1 - Height2) / 2
         
     ElseIf MyDocument.Selection.HasChildShapeRange Then
         
@@ -201,10 +205,15 @@ Sub ObjectsSwapPosition()
             Top1 = MyDocument.Selection.ChildShapeRange(1).Top
             Top2 = MyDocument.Selection.ChildShapeRange(2).Top
             
-            MyDocument.Selection.ChildShapeRange(1).left = Left2
-            MyDocument.Selection.ChildShapeRange(2).left = Left1
-            MyDocument.Selection.ChildShapeRange(1).Top = Top2
-            MyDocument.Selection.ChildShapeRange(2).Top = Top1
+            Width1 = ActiveWindow.Selection.ChildShapeRange(1).Width
+            Width2 = ActiveWindow.Selection.ChildShapeRange(2).Width 
+            Height1 = ActiveWindow.Selection.ChildShapeRange(1).Height
+            Height2 = ActiveWindow.Selection.ChildShapeRange(2).Height  
+
+            ActiveWindow.Selection.ChildShapeRange(1).left = Left2 + (Width2 - Width1) / 2
+            ActiveWindow.Selection.ChildShapeRange(2).left = Left1 + (Width1 - Width2) / 2
+            ActiveWindow.Selection.ChildShapeRange(1).Top = Top2 + (Height2 - Height1) / 2
+            ActiveWindow.Selection.ChildShapeRange(2).Top = Top1 + (Height1 - Height2) / 2
             
         Else
             

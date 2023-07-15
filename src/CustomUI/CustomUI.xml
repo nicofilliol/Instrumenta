@@ -205,8 +205,8 @@
                   <button id="ObjectsSizeNarrowest" getImage="RibbonObjectGetImage" label="Size to narrowest" showLabel="false" onAction="ObjectsSizeToNarrowest" /> -->
                   <button id="ObjectsStretchTop" getImage="RibbonObjectGetImage" label="Stretch top" onAction="ObjectsStretchTop" />
                   <button id="ObjectsStretchBottom" getImage="RibbonObjectGetImage" label="Stretch bottom" onAction="ObjectsStretchBottom" />
-                  <button id="ObjectsStretchLeft" getImage="RibbonObjectGetImage" label="Stretch right" onAction="ObjectsStretchLeft" />
-                  <button id="ObjectsStretchRight" getImage="RibbonObjectGetImage" label="Stretch left" onAction="ObjectsStretchRight" />
+                  <button id="ObjectsStretchLeft" getImage="RibbonObjectGetImage" label="Stretch left" onAction="ObjectsStretchLeft" />
+                  <button id="ObjectsStretchRight" getImage="RibbonObjectGetImage" label="Stretch right" onAction="ObjectsStretchRight" />
                </box>
                <separator id="separatorSpacing" />
                <button id="ObjectsRemoveSpaceHorizontal" imageMso="ObjectsAlignDistributeHorizontallyRemove" label="Remove horizontal gap between shapes" showLabel="false" onAction="ObjectsRemoveSpacingHorizontal" />

@@ -38,9 +38,9 @@ Sub ObjectsStretchTop()
             Set SlideShape(ShapeCount) = MyDocument.Selection.ChildShapeRange(ShapeCount)
         Next ShapeCount
         
-        ObjectsSortByTopPosition SlideShape
+        'ObjectsSortByTopPosition SlideShape
         
-        For ShapeCount = 2 To UBound(SlideShape)
+        For ShapeCount = 1 To UBound(SlideShape)-1
             SlideShape(ShapeCount).Height = SlideShape(ShapeCount).Height + (SlideShape(ShapeCount).Top - SlideShape(1).Top)
             SlideShape(ShapeCount).Top = SlideShape(1).Top
         Next ShapeCount
@@ -53,9 +53,9 @@ Sub ObjectsStretchTop()
             Set SlideShape(ShapeCount) = MyDocument.Selection.ShapeRange(ShapeCount)
         Next ShapeCount
         
-        ObjectsSortByTopPosition SlideShape
+        'ObjectsSortByTopPosition SlideShape
         
-        For ShapeCount = 2 To UBound(SlideShape)
+        For ShapeCount = 1 To UBound(SlideShape)-1
             SlideShape(ShapeCount).Height = SlideShape(ShapeCount).Height + (SlideShape(ShapeCount).Top - SlideShape(1).Top)
             SlideShape(ShapeCount).Top = SlideShape(1).Top
         Next ShapeCount
@@ -81,9 +81,9 @@ Sub ObjectsStretchLeft()
             Set SlideShape(ShapeCount) = MyDocument.Selection.ChildShapeRange(ShapeCount)
         Next ShapeCount
         
-        ObjectsSortByLeftPosition SlideShape
+        'ObjectsSortByLeftPosition SlideShape
         
-        For ShapeCount = 2 To UBound(SlideShape)
+        For ShapeCount = 1 To UBound(SlideShape)-1
             SlideShape(ShapeCount).Width = SlideShape(ShapeCount).Width + (SlideShape(ShapeCount).left - SlideShape(1).left)
             SlideShape(ShapeCount).left = SlideShape(1).left
         Next ShapeCount
@@ -96,9 +96,9 @@ Sub ObjectsStretchLeft()
             Set SlideShape(ShapeCount) = MyDocument.Selection.ShapeRange(ShapeCount)
         Next ShapeCount
         
-        ObjectsSortByLeftPosition SlideShape
+        'ObjectsSortByLeftPosition SlideShape
         
-        For ShapeCount = 2 To UBound(SlideShape)
+        For ShapeCount = 1 To UBound(SlideShape)-1
             SlideShape(ShapeCount).Width = SlideShape(ShapeCount).Width + (SlideShape(ShapeCount).left - SlideShape(1).left)
             SlideShape(ShapeCount).left = SlideShape(1).left
         Next ShapeCount
@@ -124,7 +124,7 @@ Sub ObjectsStretchBottom()
             Set SlideShape(ShapeCount) = MyDocument.Selection.ChildShapeRange(ShapeCount)
         Next ShapeCount
         
-        ObjectsSortByBottomPosition SlideShape
+        'ObjectsSortByBottomPosition SlideShape
         
         For ShapeCount = UBound(SlideShape) - 1 To 1 Step -1
             SlideShape(ShapeCount).Height = SlideShape(ShapeCount).Height + ((SlideShape(UBound(SlideShape)).Top + SlideShape(UBound(SlideShape)).Height) - SlideShape(ShapeCount).Top - SlideShape(ShapeCount).Height)
@@ -139,7 +139,7 @@ Sub ObjectsStretchBottom()
             Set SlideShape(ShapeCount) = MyDocument.Selection.ShapeRange(ShapeCount)
         Next ShapeCount
         
-        ObjectsSortByBottomPosition SlideShape
+        'ObjectsSortByBottomPosition SlideShape
         
         For ShapeCount = UBound(SlideShape) - 1 To 1 Step -1
             SlideShape(ShapeCount).Height = SlideShape(ShapeCount).Height + ((SlideShape(UBound(SlideShape)).Top + SlideShape(UBound(SlideShape)).Height) - SlideShape(ShapeCount).Top - SlideShape(ShapeCount).Height)
@@ -167,7 +167,7 @@ Sub ObjectsStretchRight()
             Set SlideShape(ShapeCount) = MyDocument.Selection.ChildShapeRange(ShapeCount)
         Next ShapeCount
         
-        ObjectsSortByRightPosition SlideShape
+        'ObjectsSortByRightPosition SlideShape
         
         For ShapeCount = UBound(SlideShape) - 1 To 1 Step -1
             SlideShape(ShapeCount).Width = SlideShape(ShapeCount).Width + ((SlideShape(UBound(SlideShape)).left + SlideShape(UBound(SlideShape)).Width) - SlideShape(ShapeCount).left - SlideShape(ShapeCount).Width)
@@ -182,7 +182,7 @@ Sub ObjectsStretchRight()
             Set SlideShape(ShapeCount) = MyDocument.Selection.ShapeRange(ShapeCount)
         Next ShapeCount
         
-        ObjectsSortByRightPosition SlideShape
+        'ObjectsSortByRightPosition SlideShape
         
         For ShapeCount = UBound(SlideShape) - 1 To 1 Step -1
             SlideShape(ShapeCount).Width = SlideShape(ShapeCount).Width + ((SlideShape(UBound(SlideShape)).left + SlideShape(UBound(SlideShape)).Width) - SlideShape(ShapeCount).left - SlideShape(ShapeCount).Width)
@@ -292,7 +292,7 @@ Sub ObjectsIncreaseSpacingHorizontal()
         ObjectsSortByLeftPosition SlideShape
         
         For ShapeCount = 2 To UBound(SlideShape)
-            SlideShape(ShapeCount).left = SlideShape(ShapeCount).left + (ShapeCount - 1) * 0.01 * 28.34646
+            SlideShape(ShapeCount).left = SlideShape(ShapeCount).left + (ShapeCount - 1) * 0.1 * 28.34646
         Next ShapeCount
         
     Else
@@ -305,7 +305,7 @@ Sub ObjectsIncreaseSpacingHorizontal()
         ObjectsSortByLeftPosition SlideShape
         
         For ShapeCount = 2 To UBound(SlideShape)
-            SlideShape(ShapeCount).left = SlideShape(ShapeCount).left + (ShapeCount - 1) * 0.01 * 28.34646
+            SlideShape(ShapeCount).left = SlideShape(ShapeCount).left + (ShapeCount - 1) * 0.1 * 28.34646
         Next ShapeCount
         
     End If
@@ -332,7 +332,7 @@ Sub ObjectsDecreaseSpacingHorizontal()
         ObjectsSortByLeftPosition SlideShape
         
         For ShapeCount = 2 To UBound(SlideShape)
-            SlideShape(ShapeCount).left = SlideShape(ShapeCount).left - (ShapeCount - 1) * 0.01 * 28.34646
+            SlideShape(ShapeCount).left = SlideShape(ShapeCount).left - (ShapeCount - 1) * 0.1 * 28.34646
         Next ShapeCount
         
     Else
@@ -346,7 +346,7 @@ Sub ObjectsDecreaseSpacingHorizontal()
         ObjectsSortByLeftPosition SlideShape
         
         For ShapeCount = 2 To UBound(SlideShape)
-            SlideShape(ShapeCount).left = SlideShape(ShapeCount).left - (ShapeCount - 1) * 0.01 * 28.34646
+            SlideShape(ShapeCount).left = SlideShape(ShapeCount).left - (ShapeCount - 1) * 0.1 * 28.34646
         Next ShapeCount
         
     End If
@@ -372,7 +372,7 @@ Sub ObjectsIncreaseSpacingVertical()
         ObjectsSortByTopPosition SlideShape
         
         For ShapeCount = 2 To UBound(SlideShape)
-            SlideShape(ShapeCount).Top = SlideShape(ShapeCount).Top + (ShapeCount - 1) * 0.01 * 28.34646
+            SlideShape(ShapeCount).Top = SlideShape(ShapeCount).Top + (ShapeCount - 1) * 0.1 * 28.34646
         Next ShapeCount
         
     Else
@@ -386,7 +386,7 @@ Sub ObjectsIncreaseSpacingVertical()
         ObjectsSortByTopPosition SlideShape
         
         For ShapeCount = 2 To UBound(SlideShape)
-            SlideShape(ShapeCount).Top = SlideShape(ShapeCount).Top + (ShapeCount - 1) * 0.01 * 28.34646
+            SlideShape(ShapeCount).Top = SlideShape(ShapeCount).Top + (ShapeCount - 1) * 0.1 * 28.34646
         Next ShapeCount
         
     End If
@@ -413,7 +413,7 @@ Sub ObjectsDecreaseSpacingVertical()
         ObjectsSortByTopPosition SlideShape
         
         For ShapeCount = 2 To UBound(SlideShape)
-            SlideShape(ShapeCount).Top = SlideShape(ShapeCount).Top - (ShapeCount - 1) * 0.01 * 28.34646
+            SlideShape(ShapeCount).Top = SlideShape(ShapeCount).Top - (ShapeCount - 1) * 0.1 * 28.34646
         Next ShapeCount
         
     Else
@@ -427,7 +427,7 @@ Sub ObjectsDecreaseSpacingVertical()
         ObjectsSortByTopPosition SlideShape
         
         For ShapeCount = 2 To UBound(SlideShape)
-            SlideShape(ShapeCount).Top = SlideShape(ShapeCount).Top - (ShapeCount - 1) * 0.01 * 28.34646
+            SlideShape(ShapeCount).Top = SlideShape(ShapeCount).Top - (ShapeCount - 1) * 0.1 * 28.34646
         Next ShapeCount
         
     End If

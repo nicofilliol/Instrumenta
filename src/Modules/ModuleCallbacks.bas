@@ -109,8 +109,15 @@ Sub RibbonObjectGetImage(control As IRibbonControl, ByRef returnedVal)
             returnedVal = "ObjectNudgeRight"
         Case "ObjectsSizeNarrowest"
             returnedVal = "ObjectNudgeLeft"
+        Case "ObjectsStretchTop"
+            returnedVal = "ObjectNudgeDown"
+        Case "ObjectsStretchBottom"
+            returnedVal = "ObjectNudgeUp"
+        Case "ObjectsStretchLeft"
+            returnedVal = "ObjectNudgeRight"
+        Case "ObjectsStretchRight"
+            returnedVal = "ObjectNudgeLeft"
     End Select
-    
 #Else
     
     Select Case control.id
@@ -125,6 +132,14 @@ Sub RibbonObjectGetImage(control As IRibbonControl, ByRef returnedVal)
         Case "ObjectsSizeToWidest"
             returnedVal = "SizeToWidest"
         Case "ObjectsSizeNarrowest"
+            returnedVal = "SizeToNarrowest"
+        Case "ObjectsStretchTop"
+            returnedVal = "SizeToTallest"
+        Case "ObjectsStretchBottom"
+            returnedVal = "SizeToShortest"
+        Case "ObjectsStretchLeft"
+            returnedVal = "SizeToWidest"
+        Case "ObjectsStretchRight"
             returnedVal = "SizeToNarrowest"
     End Select
 

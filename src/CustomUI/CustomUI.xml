@@ -199,10 +199,14 @@
                   <button id="ObjectsSameHeightButton" imageMso="RowHeight" label="Set same height" showLabel="false" onAction="ObjectsSameHeight" />
                   <button id="ObjectsSameWidthButton" imageMso="ColumnWidth" label="Set same width" showLabel="false" onAction="ObjectsSameWidth" />
                   <button id="ObjectsSameHeightAndWidthButton" imageMso="SizeToControlHeightAndWidth" label="Set same height and width" showLabel="false" onAction="ObjectsSameHeightAndWidth" />
-                  <button id="ObjectsSizeToTallest" getImage="RibbonObjectGetImage" label="Size to tallest" showLabel="false" onAction="ObjectsSizeToTallest" />
+                  <!-- <button id="ObjectsSizeToTallest" getImage="RibbonObjectGetImage" label="Size to tallest" showLabel="false" onAction="ObjectsSizeToTallest" />
                   <button id="ObjectsSizeShortest" getImage="RibbonObjectGetImage" label="Size to shortest" showLabel="false" onAction="ObjectsSizeToShortest" />
                   <button id="ObjectsSizeToWidest" getImage="RibbonObjectGetImage" label="Size to widest" showLabel="false" onAction="ObjectsSizeToWidest" />
-                  <button id="ObjectsSizeNarrowest" getImage="RibbonObjectGetImage" label="Size to narrowest" showLabel="false" onAction="ObjectsSizeToNarrowest" />
+                  <button id="ObjectsSizeNarrowest" getImage="RibbonObjectGetImage" label="Size to narrowest" showLabel="false" onAction="ObjectsSizeToNarrowest" /> -->
+                  <button id="ObjectsStretchTop" getImage="RibbonObjectGetImage" label="Stretch top" onAction="ObjectsStretchTop" />
+                  <button id="ObjectsStretchBottom" getImage="RibbonObjectGetImage" label="Stretch bottom" onAction="ObjectsStretchBottom" />
+                  <button id="ObjectsStretchLeft" getImage="RibbonObjectGetImage" label="Stretch right" onAction="ObjectsStretchLeft" />
+                  <button id="ObjectsStretchRight" getImage="RibbonObjectGetImage" label="Stretch left" onAction="ObjectsStretchRight" />
                </box>
                <separator id="separatorSpacing" />
                <button id="ObjectsRemoveSpaceHorizontal" imageMso="ObjectsAlignDistributeHorizontallyRemove" label="Remove horizontal gap between shapes" showLabel="false" onAction="ObjectsRemoveSpacingHorizontal" />
@@ -220,12 +224,13 @@
                      <button id="ObjectsAlignToTableRow" label="Center align shapes to rows of a table" showLabel="false" onAction="ObjectsAlignToTableRow" />
                   </menu>
                </splitButton>
-               <menu id="ObjectsStretchMenu" label="Stretch shapes" imageMso="DrawingCanvasExpand" showLabel="false">
-                  <button id="ObjectsStretchLeft" label="Stretch shapes to left" onAction="ObjectsStretchLeft" />
-                  <button id="ObjectsStretchRight" label="Stretch shapes to right" onAction="ObjectsStretchRight" />
-                  <button id="ObjectsStretchTop" label="Stretch shapes to top" onAction="ObjectsStretchTop" />
-                  <button id="ObjectsStretchBottom" label="Stretch shapes to bottom" onAction="ObjectsStretchBottom" />
-               </menu>
+               <!--<menu id="ObjectsStretchMenu" label="Stretch shapes" imageMso="DrawingCanvasExpand" showLabel="false">
+                  <button id="ObjectsStretchLeft" label="Stretch right" onAction="ObjectsStretchLeft" />
+                  <button id="ObjectsStretchRight" label="Stretch left" onAction="ObjectsStretchRight" />
+                  <button id="ObjectsStretchTop" label="Stretch top" onAction="ObjectsStretchTop" />
+                  <button id="ObjectsStretchBottom" label="Stretch bottom" onAction="ObjectsStretchBottom" />
+               </menu>-->
+               <button id="ObjectSplit" imageMso="SplitCells" label="Split object" showLabel="false" onAction="SplitObject" />
             </group>
             <group id="TableGroup" label="Tables" imageMso="TableInsert" tag="P" getVisible="InstrumentaGetVisible">
                <gallery idMso="TableInsertGallery" showLabel="false" label="&#x200B;" />
